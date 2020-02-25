@@ -8,7 +8,7 @@ const Main = () => {
     <section className='homepic'>
       <div className='dark-overlay'>
         <div className='homepic-inner'>
-          <h1 className='largeTitle'>Running Social</h1>
+          <h1 className='largeTitle'>Running Social <i class="fas fa-running"></i></h1>
           <p className='lead'>
             The social application where runners come together
           </p>

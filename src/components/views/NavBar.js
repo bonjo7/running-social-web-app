@@ -24,13 +24,13 @@ const NavBar = () => {
     // </nav>
     <Navbar bg='dark' variant='dark'>
       <Navbar.Brand>
-      <Link to='/'>Running Social</Link>
+      <Link to='/'> Running Social <i class="fas fa-running"></i></Link>
       </Navbar.Brand>
       <Nav className='mr-auto'></Nav>
       <Form inline>
         <Link to='/members'>Members</Link>
         <Link to='/events'>Events</Link>
-        <Link to='/login'>Login</Link>
+        <Link to='/login'>Login </Link>
       </Form>
     </Navbar>
   );
