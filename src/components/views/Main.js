@@ -1,6 +1,7 @@
 import React from "react";
 import "./Main.css";
 import "../../App.css";
+import { Link } from 'react-router-dom';
 
 const Main = () => {
   return (
@@ -12,12 +13,10 @@ const Main = () => {
             The social application where runners come together
           </p>
           <div className='buttons'>
-            <a href='register.html' className='btn btn-primary'>
-              Sign Up
-            </a>
-            <a href='login.html' className='btn btn-light'>
-              Login
-            </a>
+            <Link to='/login' className='btn btn-primary'>
+              Sign In</Link>
+            <Link to='/register' className='btn btn-light'>
+              Register</Link>
           </div>
         </div>
       </div>

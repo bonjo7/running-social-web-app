@@ -23,7 +23,9 @@ const NavBar = () => {
     //   </ul>
     // </nav>
     <Navbar bg='dark' variant='dark'>
-      <Navbar.Brand to='/'>Running Social</Navbar.Brand>
+      <Navbar.Brand>
+      <Link to='/'>Running Social</Link>
+      </Navbar.Brand>
       <Nav className='mr-auto'></Nav>
       <Form inline>
         <Link to='/members'>Members</Link>
