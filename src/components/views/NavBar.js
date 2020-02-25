@@ -8,6 +8,7 @@ import {
   FormControl
 } from "react-bootstrap";
 import "./NavBar.css";
+import { Link} from 'react-router-dom'
 
 const NavBar = () => {
   return (
@@ -22,12 +23,12 @@ const NavBar = () => {
     //   </ul>
     // </nav>
     <Navbar bg='dark' variant='dark'>
-      <Navbar.Brand href='#home'>Running Social</Navbar.Brand>
+      <Navbar.Brand to='/'>Running Social</Navbar.Brand>
       <Nav className='mr-auto'></Nav>
       <Form inline>
-        <Nav.Link href='members.html'>Members</Nav.Link>
-        <Nav.Link href='events.html'>Events</Nav.Link>
-        <Nav.Link href='login.html'>Login</Nav.Link>
+        <Link to='/members'>Members</Link>
+        <Link to='/events'>Events</Link>
+        <Link to='/login'>Login</Link>
       </Form>
     </Navbar>
   );
