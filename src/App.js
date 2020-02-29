@@ -3,9 +3,9 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/views/NavBar";
 import Main from "./components/views/Main";
-import Login from "./components/views/Login";
+import Login from "./components/views/auth/Login";
 import Events from "./components/views/Events";
-import Register from "./components/views/Register";
+import Register from "./components/views/auth/Register";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 const App = () => (
