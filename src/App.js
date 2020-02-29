@@ -6,10 +6,13 @@ import Main from "./components/views/Main";
 import Login from "./components/views/auth/Login";
 import Events from "./components/views/Events";
 import Register from "./components/views/auth/Register";
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+//Redux imports
+import { Provider } from 'react-redux';
+import store from './reduxStore';
 
 const App = () => (
-  
+  <Provider store={store}>
   <Router>
   <Fragment>
     <NavBar />
@@ -23,6 +26,7 @@ const App = () => (
     </section>
   </Fragment>
   </Router>
+  </Provider>
 );
 
 export default App;

@@ -20,7 +20,7 @@ const Login = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-    console.log('Wooho');
+    console.log(formInput);
   }
 
     return (
@@ -37,7 +37,7 @@ const Login = () => {
         <input type="submit" className="btn btn-primary" value="Login" />
       </form>
       <p className="my-1">
-        Do not have an account? <Link to="/register">Create Account</Link>
+        Do not have an account? <Link to="/register">Register Here</Link>
       </p>
       </Fragment>
     )
