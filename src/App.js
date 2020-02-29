@@ -11,9 +11,11 @@ import Alert from './components/Alert';
 //Redux imports
 import { Provider } from 'react-redux';
 import store from './reduxStore';
+import cloudURL from './services/cloud';
 
 
 const App = () => (
+  console.log('Connected to cloud url at: ' + cloudURL()),
   <Provider store={store}>
   <Router>
   <Fragment>
