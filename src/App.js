@@ -7,9 +7,11 @@ import Login from "./components/views/auth/Login";
 import Events from "./components/views/Events";
 import Register from "./components/views/auth/Register";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Alert from './components/Alert';
 //Redux imports
 import { Provider } from 'react-redux';
 import store from './reduxStore';
+
 
 const App = () => (
   <Provider store={store}>
@@ -23,6 +25,7 @@ const App = () => (
     <Route exact path="/register" component={ Register} />
     <Route exact path="/events" component={ Events} />
     </Switch>
+    {/* <Alert/> */}
     </section>
   </Fragment>
   </Router>
