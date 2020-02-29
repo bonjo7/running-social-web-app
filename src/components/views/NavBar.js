@@ -11,7 +11,7 @@ const NavBar = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg='dark' variant='dark'>
       <Navbar.Brand>
-      <Link to='/'> Running Social <i class="fas fa-running"></i></Link>
+      <Link to='/'> Running Social <i className="fas fa-running"></i></Link>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
