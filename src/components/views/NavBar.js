@@ -20,6 +20,7 @@ const NavBar = () => {
         <Link to='/members'>Members</Link>
         <Link to='/events'>Events</Link>
         <Link to='/login'>Login </Link>
+        
       </Form>
       </Navbar.Collapse>
     </Navbar>
