@@ -1,8 +1,10 @@
 import React, {Fragment, useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './Auth.css';
+import axios from 'axios';
+import cloudURL from '../../../services/cloud';
 
-const Login = () => {
+const Login = (props) => {
 
   const [formInput, setForm] = useState({
     email: '',
@@ -18,9 +20,28 @@ const Login = () => {
     setForm({ ...formInput ,[e.target.name]: e.target.value});
   }
 
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
-    console.log(formInput);
+
+    const user ={
+      email,
+      password
+    }
+
+    try{
+
+      const config ={
+        headers: { 'Content-Type': 'application/json'}
+      }
+
+      const body = JSON.stringify(user);
+
+      const res = await axios.post(cloudURL() + '/lib/routes/auth',body, config);
+      console.log(res)
+      props.history.push('/register')
+    }catch (error){
+      console.log(error.response.data);
+    }
   }
 
     return (

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Auth.css';
 import '../../../App.css';
 import axios from 'axios';
-import cloudURL from '../../../services/cloud'
+import cloudURL from '../../../services/cloud';
 
 const Register = (props) => {
 
@@ -30,8 +30,9 @@ const Register = (props) => {
     if(password !== confirmPassword){
       
       console.log('Passwords do not match');
-    }else{
-      console.log(formInput);
+      alert('Passwords do not match, try again');
+    }
+    else{
       const newUser ={
         name,
         email,
@@ -39,6 +40,7 @@ const Register = (props) => {
       }
 
       try{
+
         const config ={
           headers: { 'Content-Type': 'application/json'}
         }
@@ -46,9 +48,10 @@ const Register = (props) => {
         const body = JSON.stringify(newUser);
 
         const res = await axios.post(cloudURL() + '/lib/routes/users',body, config);
-        console.log(res)
-      }catch{
-        console.log('uh ho');
+        console.log(res);
+        props.history.push('/login');
+      }catch (error){
+        console.log(error.response.data);
       }
     }
   }
