@@ -1,9 +1,13 @@
 import React, {Fragment, useState} from 'react';
+import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import './Auth.css';
 import '../../../App.css';
 import axios from 'axios';
 import cloudURL from '../../../services/cloud';
+import { setAlert } from '../../../actions/alert';
+import {register} from '../../../actions/auth';
+
 
 const Register = (props) => {
 
@@ -28,31 +32,33 @@ const Register = (props) => {
   const onSubmit = async e => {
     e.preventDefault();
     if(password !== confirmPassword){
-      
+      props.setAlert('Passwords do not match', 'danger');
       console.log('Passwords do not match');
-      alert('Passwords do not match, try again');
     }
     else{
-      const newUser ={
-        name,
-        email,
-        password
-      }
+      props.register({name, email, password});
+      console.log('Register success');
+      // const newUser ={
+      //   name,
+      //   email,
+      //   password
+      // }
 
-      try{
+      // try{
 
-        const config ={
-          headers: { 'Content-Type': 'application/json'}
-        }
+      //   const config ={
+      //     headers: { 'Content-Type': 'application/json'}
+      //   }
 
-        const body = JSON.stringify(newUser);
+      //   const body = JSON.stringify(newUser);
 
-        const res = await axios.post(cloudURL() + '/lib/routes/users',body, config);
-        console.log(res);
-        props.history.push('/login');
-      }catch (error){
-        console.log(error.response.data);
-      }
+      //   const res = await axios.post(cloudURL() + '/lib/routes/users',body, config);
+        
+      //   console.log(res);
+      //   props.history.push('/login');
+      // }catch (error){
+      //   console.log(error.response.data);
+      // }
     }
   }
 
@@ -85,4 +91,4 @@ const Register = (props) => {
     )
 }
 
-export default Register;
+export default connect(null, { setAlert, register}) (Register);

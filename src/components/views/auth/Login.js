@@ -37,6 +37,7 @@ const Login = (props) => {
       const body = JSON.stringify(user);
 
       const res = await axios.post(cloudURL() + '/lib/routes/auth',body, config);
+      axios.defaults.headers.common[''] = res.data.token;
       console.log(res)
       props.history.push('/register')
     }catch (error){

@@ -6,15 +6,21 @@ import Main from "./components/views/Main";
 import Login from "./components/views/auth/Login";
 import Events from "./components/views/Events";
 import Register from "./components/views/auth/Register";
+import Alert from "./components/Alert";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-
+import { loadUser } from './services/auth';
 //Redux imports
+import { Provider } from 'react-redux';
+import store from './reduxStore/store';
 import cloudURL from './services/cloud';
+
+
+
 
 
 const App = () => (
   console.log('Connected to cloud url at: ' + cloudURL()),
-  
+  <Provider store = {store}>
   <Router>
   <Fragment>
     <NavBar />
@@ -25,9 +31,11 @@ const App = () => (
     <Route exact path="/register" component={ Register} />
     <Route exact path="/events" component={ Events} />
     </Switch>
+    <Alert />
     </section>
   </Fragment>
   </Router>
+  </Provider>
 );
 
 export default App;

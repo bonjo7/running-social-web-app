@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import '../App.css';
 
@@ -10,9 +9,6 @@ props.alerts.map(alert => (
         { alert.msg }
     </div>
 ));
-
-Alert.PropTypes = {
-};
 
 const mapStateToProps = state => ({
     alerts: state.alert
