@@ -8,7 +8,7 @@ import Events from "./components/views/Events";
 import Register from "./components/views/auth/Register";
 import Alert from "./components/Alert";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import { loadUser } from './services/auth';
+import { loadUser } from './actions/auth';
 //Redux imports
 import { Provider } from 'react-redux';
 import store from './reduxStore/store';
@@ -25,7 +25,7 @@ const App = () => {
 
   useEffect(() =>  {
     store.dispatch(loadUser());
-  });
+  }, []);
 
   return(
   console.log('Connected to cloud url at: ' + cloudURL()),

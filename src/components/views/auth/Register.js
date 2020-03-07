@@ -38,6 +38,7 @@ const Register = (props) => {
     else{
       props.register({name, email, password});
       console.log('Register success');
+      props.history.push('/login');
       // const newUser ={
       //   name,
       //   email,
