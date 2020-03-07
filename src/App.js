@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/views/NavBar";
@@ -13,12 +13,21 @@ import { loadUser } from './services/auth';
 import { Provider } from 'react-redux';
 import store from './reduxStore/store';
 import cloudURL from './services/cloud';
+import authToken from './services/authToken';
 
 
+if(localStorage.token){
+  authToken(localStorage.token);
+};
 
 
+const App = () => { 
 
-const App = () => (
+  useEffect(() =>  {
+    store.dispatch(loadUser());
+  });
+
+  return(
   console.log('Connected to cloud url at: ' + cloudURL()),
   <Provider store = {store}>
   <Router>
@@ -36,6 +45,6 @@ const App = () => (
   </Fragment>
   </Router>
   </Provider>
-);
+)};
 
 export default App;

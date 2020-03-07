@@ -1,6 +1,25 @@
 import axios from 'axios'
-import { REGISTER_SUCCESS, REGISTER_FAIL} from './constantans';
+import { REGISTER_SUCCESS, REGISTER_FAIL, USER_LOADED, AUTH_ERROR} from './constantans';
 import cloudURL from '../services/cloud';
+import authToken from '../services/authToken';
+
+export const loadUser = () => async dispatch => {
+
+  if(localStorage.token){
+      authToken(localStorage.token);
+  }
+  try{
+    const res = await axios.get('/lib/route/auth');
+    dispatch({
+      type: USER_LOADED,
+      payload: res.data
+    });
+  }catch(error){
+    dispatch({
+      type: AUTH_ERROR
+    })
+  }
+}
 
 export const register = ({name, email, password}) => async dispatch => {
 
@@ -24,3 +43,4 @@ export const register = ({name, email, password}) => async dispatch => {
         });
       }
 };
+
