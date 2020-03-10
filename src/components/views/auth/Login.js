@@ -1,8 +1,6 @@
-import React, {Fragment, useState} from 'react';
+import React, {useState} from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import './Auth.css';
-import axios from 'axios';
-import cloudURL from '../../../services/cloud';
 import {connect} from 'react-redux';
 import {login} from '../../../actions/auth';
 
@@ -53,9 +51,14 @@ const Login = (props) => {
   }
 
     return (
-        <Fragment>
+
+ <section className='homepic'>
+      <div className='dark-overlay'>
+        <div className='homepic-inner'>
+        <div class="login-page">
+       <form className="form" onSubmit={ e => onSubmit(e)}>
       <h2 className="large create-account"><i className="fas fa-user-circle"></i> Enter your login details</h2>
-      <form className="form" onSubmit={ e => onSubmit(e)}>
+      
         <div className="form-group">
           <input type="email" placeholder="Email Address" name="email" value={email} onChange={e => handleChange(e)} />
         </div>
@@ -64,23 +67,16 @@ const Login = (props) => {
           />
         </div>
         <input type="submit" className="btn btn-primary" value="Login" />
-      </form>
+      
       <p className="my-1">
         Do not have an account? <Link to="/register">Register Here</Link>
       </p>
-      {/* <div class="login-page">
-  <div class="form">
-   
-    <form className="login-form" onSubmit={ e => onSubmit(e)}>
-    <h2 className="large create-account"><i className="fas fa-user-circle"></i> Enter your login details</h2>
-      <input type="email" placeholder="Email Address" name="email" value={email} onChange={e => handleChange(e)}/>
-      <input type="password" placeholder="password" name="password" value={password} onChange={e => handleChange(e)} minLength="6"/>
-      <input type="submit" className="primary" value="Login" />
-      <p class="message">Not registered? <Link to="/register">Register Here</Link></p>
-    </form> */}
-  {/* </div> */}
-{/* </div> */}
-      </Fragment>
+      </form>
+      </div>
+          </div>
+        </div>
+      
+    </section>
     )
 }
 

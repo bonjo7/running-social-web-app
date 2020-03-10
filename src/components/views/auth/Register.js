@@ -1,10 +1,7 @@
-import React, {Fragment, useState} from 'react';
+import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import './Auth.css';
-import '../../../App.css';
-import axios from 'axios';
-import cloudURL from '../../../services/cloud';
 import { setAlert } from '../../../actions/alert';
 import {register} from '../../../actions/auth';
 
@@ -64,9 +61,12 @@ const Register = (props) => {
   }
 
     return (
-        <Fragment>
+<section className='homepic'>
+<div className='dark-overlay'>
+  <div className='homepic-inner'>
+  <div class="login-page">
+  <form className="form" onSubmit={ e => onSubmit(e)}>
       <h2 className="large create-account"><i className="fas fa-user-circle"></i> Create Your Account</h2>
-      <form className="form" onSubmit={ e => onSubmit(e)}>
         <div className="form-group">
           <input type="text" placeholder="Name" name="name" value={name} onChange={e => handleChange(e)} required />
         </div>
@@ -84,11 +84,16 @@ const Register = (props) => {
          
         </div>
         <input type="submit" className="btn btn-primary" value="Register" />
-      </form>
+     
       <p className="my-1">
         Already have an account? <Link to="/login">Sign In</Link>
       </p>
-      </Fragment>
+      </form>
+</div>
+    </div>
+  </div>
+
+</section>
     )
 }
 
