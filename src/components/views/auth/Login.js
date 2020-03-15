@@ -55,7 +55,7 @@ const Login = (props) => {
  <section className='homepic'>
       <div className='dark-overlay'>
         <div className='homepic-inner'>
-        <div class="login-page">
+        <div className="login-page">
        <form className="form" onSubmit={ e => onSubmit(e)}>
       <h2 className="large create-account"><i className="fas fa-user-circle"></i> Enter your login details</h2>
       
