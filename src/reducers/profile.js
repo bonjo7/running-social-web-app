@@ -1,4 +1,4 @@
-import { GET_PROFILE, PROFILE_ERROR } from "../actions/constantans";
+import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE } from "../actions/constantans";
 
 const initialstate = {
     profile: null,
@@ -22,6 +22,13 @@ export default function(state=initialstate, action){
                 error: payload,
                 loading: false
             }
+        case CLEAR_PROFILE:
+            return {
+                ...state,
+                profile: null,
+                loading: false
+            }
+            
         default:
             return state
     }
