@@ -57,7 +57,7 @@ const Login = (props) => {
         <div className='homepic-inner'>
         <div className="login-page">
        <form className="form" onSubmit={ e => onSubmit(e)}>
-      <h2 className="large create-account"><i className="fas fa-user-circle"></i> Enter your login details</h2>
+      <h2 className="large create-account"> Sing in to your account</h2>
       
         <div className="form-group">
           <input type="email" placeholder="Email Address" name="email" value={email} onChange={e => handleChange(e)} />

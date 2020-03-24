@@ -16,6 +16,7 @@ import store from './reduxStore/store';
 import cloudURL from './services/cloud';
 import authToken from './services/authToken';
 import PrivateRoute from './components/routes/PrivateRoute';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 if(localStorage.token){

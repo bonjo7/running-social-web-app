@@ -23,7 +23,7 @@
   .homepic-inner {
     color: #fff;
     height: 100%;
-    width: 80%;
+    width: 100%;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -115,14 +115,17 @@
 
   .login-page {
     width: 360px;
-    padding: 0 0 0;
+    padding: 0 0 0 0;
     margin: auto;
     margin-top: 100px;
+    position: relative;
   }
 
   .form p{
     color: var(--primary-color);
   }
+
+  
 
 
   

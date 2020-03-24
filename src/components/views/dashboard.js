@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getCurrentprofile } from '../../actions/profile';
 import Loading from './Loading';
+import '../../App.css';
+import CreatProfile from './profile/CreatProfile'
 
 const Dashboard = ({getCurrentprofile, auth: {user}, profile:{profile, loading}}) => {
     useEffect(() => {
@@ -11,9 +13,14 @@ const Dashboard = ({getCurrentprofile, auth: {user}, profile:{profile, loading}}
     return(
         loading && profile === null ? (<Loading></Loading>) : 
         (<Fragment>
-            <h1>Dashboard</h1>
+            <h1 className='large text-color'>Dashboard</h1>
             <h4>Welcome {user && user.name}</h4>
-            {profile !== null ? <Fragment>You have profile</Fragment> : <Fragment>You do not have a profile</Fragment>}
+            {profile !== null ? (<Fragment>You have profile</Fragment>) : 
+            (<Fragment>
+                <p>You do not have a profile, why not take some time to create one...</p>
+                
+                <CreatProfile></CreatProfile>
+                </Fragment>)}
         </Fragment>)
     )
 }

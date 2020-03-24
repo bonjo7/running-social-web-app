@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {Fragment, useState} from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import './Auth.css';
@@ -66,7 +66,7 @@ const Register = (props) => {
   <div className='homepic-inner'>
   <div class="login-page">
   <form className="form" onSubmit={ e => onSubmit(e)}>
-      <h2 className="large create-account"><i className="fas fa-user-circle"></i> Create Your Account</h2>
+      <h2 className="large create-account">Create Your Account</h2>
         <div className="form-group">
           <input type="text" placeholder="Name" name="name" value={name} onChange={e => handleChange(e)} required />
         </div>
