@@ -9,7 +9,7 @@
 .btn {
   display: inline-block;
   background: var(--light-color);
-  color: #4CAF50;
+  color: #4caf50;
   padding: 0.4rem 1.3rem;
   font-size: 1rem;
   border: none;
@@ -33,7 +33,7 @@
 }
 
 .text-color {
-  color:  #17a2b8;
+  color: #17a2b8;
 }
 
 .alert {
@@ -93,3 +93,8 @@
   border: #ccc solid 1px;
 }
 
+.settingwelcome {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}

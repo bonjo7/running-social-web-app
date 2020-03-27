@@ -63,7 +63,8 @@ const EditProfile = ({ profile: {profile, loading}, auth: {user} ,createProfile,
           eventKey='0'
           color='#17a2b8'
         >
-            Click here to Edit your Profile {user && user.name}
+            <i class='fas fa-angle-down' color='#17a2b8'></i>
+          Click here to Edit your Profile {user && user.name}
           
         </Accordion.Toggle>
         <Accordion.Collapse eventKey='0'>
