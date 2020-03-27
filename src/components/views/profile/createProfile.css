@@ -1,3 +1,15 @@
 label {
-    color: #17a2b8;
+  color: #17a2b8;
+}
+
+hr {
+  margin-top: 40px;
+  color: #17a2b8;
+  border: none;
+  height: 2px;
+  background-color: #17a2b8; /* Modern Browsers */
+}
+
+{
+  color: #17a2b8;
 }
