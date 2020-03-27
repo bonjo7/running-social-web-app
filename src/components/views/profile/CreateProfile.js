@@ -1,23 +1,23 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { Accordion, Card, Form, Col, Row, Button } from "react-bootstrap";
 import "../Main.css";
 import "./createProfile.css";
-import {createProfile} from '../../../actions/profile';
+import { createProfile } from "../../../actions/profile";
 
 const CreateProfile = ({ createProfile }) => {
   const [formData, setForm] = useState({
-    user: '',
-    runningclub: '',
-    clubwebsite: '',
-    location: '',
-    distance: '',
-    fitnessinterest: '',
-    bio: '',
-    blog: '',
-    twitterusername: '',
-    instausername: ''
+    user: "",
+    runningclub: "",
+    clubwebsite: "",
+    location: "",
+    distance: "",
+    fitnessinterest: "",
+    bio: "",
+    blog: "",
+    twitterusername: "",
+    instausername: ""
   });
 
   const {
@@ -35,11 +35,11 @@ const CreateProfile = ({ createProfile }) => {
 
   const onChange = e =>
     setForm({ ...formData, [e.target.name]: e.target.value });
- 
+
   const onSubmit = e => {
     e.preventDefault();
     createProfile(formData);
-  }
+  };
   return (
     <Accordion>
       <Card className='card shadow lg p-3 mb-5 bg-white rounded'>
@@ -107,7 +107,9 @@ const CreateProfile = ({ createProfile }) => {
             </Form.Group>
 
             <Form.Group controlId='fitnessinterest'>
-              <Form.Label>Enter your fitness interests (Spereate interests with a comma ,)</Form.Label>
+              <Form.Label>
+                Enter your fitness interests (Spereate interests with a comma ,)
+              </Form.Label>
               <Form.Control
                 name='fitnessinterest'
                 placeholder='running walking tri.....'
@@ -178,10 +180,15 @@ const CreateProfile = ({ createProfile }) => {
               </Col>
             </Form.Group>
 
-            
-            <Accordion.Toggle as={Button} eventKey="1" variant="primary" type="submit" onClick={e => onSubmit(e)}>
-                Save Profile
-              </Accordion.Toggle>
+            <Accordion.Toggle
+              as={Button}
+              eventKey='1'
+              variant='primary'
+              type='submit'
+              onClick={e => onSubmit(e)}
+            >
+              Save Profile
+            </Accordion.Toggle>
           </Card.Body>
         </Accordion.Collapse>
       </Card>
@@ -190,8 +197,7 @@ const CreateProfile = ({ createProfile }) => {
 };
 
 CreateProfile.propTypes = {
-createProfile: PropTypes.func.isRequired,
+  createProfile: PropTypes.func.isRequired
 };
 
-
-export default connect(null, {createProfile} ) (CreateProfile);
+export default connect(null, { createProfile })(CreateProfile);

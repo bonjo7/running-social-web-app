@@ -1,6 +1,6 @@
 import React, { useEffect, Fragment } from "react";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import { getCurrentprofile } from "../../actions/profile";
 import Loading from "./Loading";
 import "../../App.css";
@@ -20,7 +20,7 @@ const Dashboard = ({
   ) : (
     <Fragment>
       <h1 className='large text-color'>User Account</h1>
-      <p class="settingwelcome">Welcome {user && user.name}</p>
+      <p class='settingelcome'>Welcome {user && user.name}</p>
       {profile !== null ? (
         <Fragment>
           <EditProfile></EditProfile>

@@ -5,7 +5,7 @@ import NavBar from "./components/views/NavBar";
 import Main from "./components/views/Main";
 import Login from "./components/views/auth/Login";
 import Events from "./components/views/Events";
-import Dashboard from "./components/views/Dashboard";
+import Dashboard from './components/views/Dashboard'
 import Register from "./components/views/auth/Register";
 import Alert from "./components/Alert";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';

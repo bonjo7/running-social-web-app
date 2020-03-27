@@ -1,39 +1,52 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { Accordion, Card, Form, Col, Row, Button } from "react-bootstrap";
 import "../Main.css";
 import "./createProfile.css";
-import { createProfile, getCurrentprofile } from '../../../actions/profile';
+import { createProfile, getCurrentprofile } from "../../../actions/profile";
 
-
-const EditProfile = ({ profile: {profile, loading}, auth: {user} ,createProfile, getCurrentprofile }) => {
+const EditProfile = ({
+  profile: { profile, loading },
+  auth: { user },
+  createProfile,
+  getCurrentprofile
+}) => {
   const [formData, setForm] = useState({
-    user: '',
-    runningclub: '',
-    clubwebsite: '',
-    location: '',
-    distance: '',
-    fitnessinterest: '',
-    bio: '',
-    blog: '',
-    twitterusername: '',
-    instausername: ''
+    user: "",
+    runningclub: "",
+    clubwebsite: "",
+    location: "",
+    distance: "",
+    fitnessinterest: "",
+    bio: "",
+    blog: "",
+    twitterusername: "",
+    instausername: ""
   });
 
   useEffect(() => {
     getCurrentprofile();
-      setForm({
-        runningclub: loading || !profile.runningclub ? '' : profile.runningclub,
-        clubwebsite: loading || !profile.clubwebsite ? '' : profile.clubwebsite,
-        location: loading || !profile.location ? '' : profile.location,
-        distance: loading || !profile.distance ? '' : profile.distance,
-        fitnessinterest: loading || !profile.fitnessinterest ? '' : profile.fitnessinterest.join(','),
-        bio: loading || !profile.bio ? '' : profile.bio,
-        blog: loading || !profile.blog ? '' : profile.blog,
-        twitterusername: loading || !profile.social.twitterusername ? '' : profile.social.twitterusername,
-        instausername: loading || !profile.social.instausername ? '' : profile.social.instausername,
-      });
+    setForm({
+      runningclub: loading || !profile.runningclub ? "" : profile.runningclub,
+      clubwebsite: loading || !profile.clubwebsite ? "" : profile.clubwebsite,
+      location: loading || !profile.location ? "" : profile.location,
+      distance: loading || !profile.distance ? "" : profile.distance,
+      fitnessinterest:
+        loading || !profile.fitnessinterest
+          ? ""
+          : profile.fitnessinterest.join(","),
+      bio: loading || !profile.bio ? "" : profile.bio,
+      blog: loading || !profile.blog ? "" : profile.blog,
+      twitterusername:
+        loading || !profile.social.twitterusername
+          ? ""
+          : profile.social.twitterusername,
+      instausername:
+        loading || !profile.social.instausername
+          ? ""
+          : profile.social.instausername
+    });
   }, [loading]);
 
   const {
@@ -50,22 +63,17 @@ const EditProfile = ({ profile: {profile, loading}, auth: {user} ,createProfile,
 
   const onChange = e =>
     setForm({ ...formData, [e.target.name]: e.target.value });
- 
+
   const onSubmit = e => {
     e.preventDefault();
     createProfile(formData, true);
-  }
+  };
   return (
     <Accordion>
       <Card className='card shadow lg p-3 mb-5 bg-white rounded'>
-        <Accordion.Toggle
-          as={Card.Header}
-          eventKey='0'
-          color='#17a2b8'
-        >
-            <i class='fas fa-angle-down' color='#17a2b8'></i>
+        <Accordion.Toggle as={Card.Header} eventKey='0' color='#17a2b8'>
+          <i class='fas fa-angle-down' color='#17a2b8'></i>
           Click here to Edit your Profile {user && user.name}
-          
         </Accordion.Toggle>
         <Accordion.Collapse eventKey='0'>
           <Card.Body>
@@ -122,7 +130,9 @@ const EditProfile = ({ profile: {profile, loading}, auth: {user} ,createProfile,
             </Form.Group>
 
             <Form.Group controlId='fitnessinterest'>
-              <Form.Label>Enter your fitness interests (Spereate interests with a comma ,)</Form.Label>
+              <Form.Label>
+                Enter your fitness interests (Spereate interests with a comma ,)
+              </Form.Label>
               <Form.Control
                 name='fitnessinterest'
                 placeholder='running walking tri.....'
@@ -193,10 +203,15 @@ const EditProfile = ({ profile: {profile, loading}, auth: {user} ,createProfile,
               </Col>
             </Form.Group>
 
-            
-            <Accordion.Toggle as={Button} eventKey="1" variant="primary" type="submit" onClick={e => onSubmit(e)}>
-                Save Profile
-              </Accordion.Toggle>
+            <Accordion.Toggle
+              as={Button}
+              eventKey='1'
+              variant='primary'
+              type='submit'
+              onClick={e => onSubmit(e)}
+            >
+              Save Profile
+            </Accordion.Toggle>
           </Card.Body>
         </Accordion.Collapse>
       </Card>
@@ -205,14 +220,16 @@ const EditProfile = ({ profile: {profile, loading}, auth: {user} ,createProfile,
 };
 
 EditProfile.propTypes = {
-createProfile: PropTypes.func.isRequired,
-getCurrentProfile: PropTypes.func.isRequired,
-auth: PropTypes.object.isRequired,
-profile: PropTypes.object.isRequired
+  createProfile: PropTypes.func.isRequired,
+  getCurrentProfile: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  profile: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-    profile: state.profile,
-    auth: state.auth,
+  profile: state.profile,
+  auth: state.auth
 });
-export default connect(mapStateToProps, {createProfile, getCurrentprofile} ) (EditProfile);
+export default connect(mapStateToProps, { createProfile, getCurrentprofile })(
+  EditProfile
+);
