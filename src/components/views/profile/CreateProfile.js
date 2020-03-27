@@ -4,19 +4,20 @@ import { connect } from "react-redux";
 import { Accordion, Card, Form, Col, Row, Button } from "react-bootstrap";
 import "../Main.css";
 import "./createProfile.css";
+import {createProfile} from '../../../actions/profile';
 
-const CreatProfile = props => {
-  const [formData, setFormData] = useState({
-    user: "",
-    runningclub: "",
-    clubwebsite: "",
-    location: "",
-    distance: "",
-    fitnessinterest: "",
-    bio: "",
-    blog: "",
-    twitterusername: "",
-    instausername: ""
+const CreateProfile = ({ createProfile }) => {
+  const [formData, setForm] = useState({
+    user: '',
+    runningclub: '',
+    clubwebsite: '',
+    location: '',
+    distance: '',
+    fitnessinterest: '',
+    bio: '',
+    blog: '',
+    twitterusername: '',
+    instausername: ''
   });
 
   const {
@@ -32,9 +33,13 @@ const CreatProfile = props => {
     instausername
   } = formData;
 
-  const oncChange = e =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-
+  const onChange = e =>
+    setForm({ ...formData, [e.target.name]: e.target.value });
+ 
+  const onSubmit = e => {
+    e.preventDefault();
+    createProfile(formData);
+  }
   return (
     <Accordion>
       <Card className='card shadow lg p-3 mb-5 bg-white rounded'>
@@ -56,7 +61,7 @@ const CreatProfile = props => {
                 placeholder='Running Club Name'
                 as='input'
                 value={runningclub}
-                onChnage={e => onchange(e)}
+                onChange={e => onChange(e)}
               />
             </Form.Group>
 
@@ -67,7 +72,7 @@ const CreatProfile = props => {
                 placeholder='www.yourclubwebsite.com'
                 as='input'
                 value={clubwebsite}
-                onChnage={e => onchange(e)}
+                onChange={e => onChange(e)}
               />
             </Form.Group>
 
@@ -78,7 +83,7 @@ const CreatProfile = props => {
                 placeholder='eg. Waterford'
                 as='input'
                 value={location}
-                onChnage={e => onchange(e)}
+                onChange={e => onChange(e)}
               />
             </Form.Group>
 
@@ -88,7 +93,8 @@ const CreatProfile = props => {
                 name='distance'
                 as='select'
                 value={distance}
-                onChnage={e => onchange(e)}
+                onChange={e => onChange(e)}
+                required
               >
                 <option>Choose...</option>
                 <option value='5k'>5k</option>
@@ -101,14 +107,15 @@ const CreatProfile = props => {
             </Form.Group>
 
             <Form.Group controlId='fitnessinterest'>
-              <Form.Label>Enter your fitness interests</Form.Label>
+              <Form.Label>Enter your fitness interests (Spereate interests with a comma ,)</Form.Label>
               <Form.Control
-                name='fitnessinterests'
+                name='fitnessinterest'
                 placeholder='running walking tri.....'
                 as='textarea'
                 rows='3'
                 value={fitnessinterest}
-                onChnage={e => onchange(e)}
+                onChange={e => onChange(e)}
+                required
               />
             </Form.Group>
 
@@ -120,7 +127,7 @@ const CreatProfile = props => {
                 as='textarea'
                 rows='5'
                 value={bio}
-                onChnage={e => onchange(e)}
+                onChange={e => onChange(e)}
               />
             </Form.Group>
 
@@ -131,7 +138,7 @@ const CreatProfile = props => {
                 placeholder='www.myblog.com'
                 as='input'
                 value={blog}
-                onChnage={e => onchange(e)}
+                onChange={e => onChange(e)}
               />
             </Form.Group>
             <hr></hr>
@@ -151,7 +158,7 @@ const CreatProfile = props => {
                   placeholder='Twitter URL'
                   as='input'
                   value={twitterusername}
-                  onChnage={e => onchange(e)}
+                  onChange={e => onChange(e)}
                 />
               </Col>
             </Form.Group>
@@ -166,12 +173,15 @@ const CreatProfile = props => {
                   placeholder='Instagram URL'
                   as='input'
                   value={instausername}
-                  onChnage={e => onchange(e)}
+                  onChange={e => onChange(e)}
                 />
               </Col>
             </Form.Group>
 
-            <Button>Save Profile</Button>
+            
+            <Accordion.Toggle as={Button} eventKey="1" variant="primary" type="submit" onClick={e => onSubmit(e)}>
+                Save Profile
+              </Accordion.Toggle>
           </Card.Body>
         </Accordion.Collapse>
       </Card>
@@ -179,8 +189,9 @@ const CreatProfile = props => {
   );
 };
 
-// CreateProfile.PropTypes = {
+CreateProfile.propTypes = {
+createProfile: PropTypes.func.isRequired,
+};
 
-// }
 
-export default CreatProfile;
+export default connect(null, {createProfile} ) (CreateProfile);
