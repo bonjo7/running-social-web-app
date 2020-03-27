@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { getCurrentprofile } from '../../actions/profile';
 import Loading from './Loading';
 import '../../App.css';
-import CreateProfile from './profile/CreateProfile'
+import CreateProfile from './profile/CreateProfile';
+import EditProfile from './profile/EditProfile';
 
 const Dashboard = ({getCurrentprofile, auth: {user}, profile:{profile, loading}}) => {
     useEffect(() => {
@@ -15,7 +16,9 @@ const Dashboard = ({getCurrentprofile, auth: {user}, profile:{profile, loading}}
         (<Fragment>
             <h1 className='large text-color'>Dashboard</h1>
             <h4>Welcome {user && user.name}</h4>
-            {profile !== null ? (<Fragment>You have profile</Fragment>) : 
+            {profile !== null ? (<Fragment>
+                <EditProfile></EditProfile>
+            </Fragment>) : 
             (<Fragment>
                 <p>You do not have a profile, why not take some time to create one...</p>
                 

@@ -19,7 +19,7 @@ export const getCurrentprofile = () => async dispatch => {
     }
 };
 
-export const createProfile = (formData, history, edit = false) => async dispatch => {
+export const createProfile = (formData, edit = false) => async dispatch => {
     try{
         const config = {
             headers: {
@@ -34,7 +34,7 @@ export const createProfile = (formData, history, edit = false) => async dispatch
             payload: res.data
         });
 
-        dispatch(setAlert(edit ? 'Your profile has been updated' : 'Your have successfully created your profile, woohoo', 'success'))
+        dispatch(setAlert(edit ? 'Your profile has been updated successfully' : 'Your have successfully created your profile, woohoo', 'success'))
 
 
     }catch(error){
