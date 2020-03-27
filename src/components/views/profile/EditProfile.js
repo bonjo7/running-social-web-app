@@ -4,9 +4,10 @@ import { connect } from "react-redux";
 import { Accordion, Card, Form, Col, Row, Button } from "react-bootstrap";
 import "../Main.css";
 import "./createProfile.css";
-import { createProfile, getCurrentprofile } from '../../../actions/profile'
+import { createProfile, getCurrentprofile } from '../../../actions/profile';
 
-const EditProfile = ({ profile: {profile, loading} ,createProfile, getCurrentprofile }) => {
+
+const EditProfile = ({ profile: {profile, loading}, auth: {user} ,createProfile, getCurrentprofile }) => {
   const [formData, setForm] = useState({
     user: '',
     runningclub: '',
@@ -36,7 +37,6 @@ const EditProfile = ({ profile: {profile, loading} ,createProfile, getCurrentpro
   }, [loading]);
 
   const {
-    user,
     runningclub,
     clubwebsite,
     location,
@@ -60,12 +60,11 @@ const EditProfile = ({ profile: {profile, loading} ,createProfile, getCurrentpro
       <Card className='card shadow lg p-3 mb-5 bg-white rounded'>
         <Accordion.Toggle
           as={Card.Header}
-          class='toggleHeader'
           eventKey='0'
           color='#17a2b8'
         >
-          Click here to Edit your Profile{" "}
-          <i class='fas fa-angle-down' color='#17a2b8'></i>
+            Click here to Edit your Profile {user && user.name}
+          
         </Accordion.Toggle>
         <Accordion.Collapse eventKey='0'>
           <Card.Body>
@@ -207,10 +206,12 @@ const EditProfile = ({ profile: {profile, loading} ,createProfile, getCurrentpro
 EditProfile.propTypes = {
 createProfile: PropTypes.func.isRequired,
 getCurrentProfile: PropTypes.func.isRequired,
+auth: PropTypes.object.isRequired,
 profile: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-    profile: state.profile
+    profile: state.profile,
+    auth: state.auth,
 });
 export default connect(mapStateToProps, {createProfile, getCurrentprofile} ) (EditProfile);

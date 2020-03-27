@@ -16,7 +16,7 @@ const NavBar = ({auth: {isAuthenticated, loading}, logout}) => {
   const userLinks = (
     <Fragment>
     <Link to='/events'>Events</Link>
-    <Link to='/dashboard'>Dashboard</Link>
+    <Link to='/dashboard'>Account</Link>
     <Link onClick={logout} to='/'>Logout </Link>
     </Fragment>
   );

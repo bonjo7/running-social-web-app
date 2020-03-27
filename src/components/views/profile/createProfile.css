@@ -10,6 +10,9 @@ hr {
   background-color: #17a2b8; /* Modern Browsers */
 }
 
-{
-  color: #17a2b8;
+form{
+  margin-top: 25px; 
+  margin-left: 25px;
+  margin-right: 25px;
+  padding: 10px;
 }

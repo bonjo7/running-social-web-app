@@ -14,7 +14,7 @@ const Dashboard = ({getCurrentprofile, auth: {user}, profile:{profile, loading}}
     return(
         loading && profile === null ? (<Loading></Loading>) : 
         (<Fragment>
-            <h1 className='large text-color'>Dashboard</h1>
+            <h1 className='large text-color'>User Account</h1>
             <h4>Welcome {user && user.name}</h4>
             {profile !== null ? (<Fragment>
                 <EditProfile></EditProfile>
