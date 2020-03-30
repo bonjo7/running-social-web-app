@@ -1,21 +1,21 @@
 import React, { Fragment, useEffect } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import NavBar from "./components/views/NavBar";
-import Main from "./components/views/Main";
-import Login from "./components/views/auth/Login";
-import Events from "./components/views/Events";
-import Dashboard from './components/views/Dashboard'
-import Register from "./components/views/auth/Register";
-import Alert from "./components/Alert";
+import NavBar from "./Components/views/NavBar";
+import Main from "./Components/views/Main";
+import Login from "./Components/views/auth/Login";
+import Events from "./Components/views/Events";
+import Dashboard from './Components/views/Dashboard'
+import Register from "./Components/views/auth/Register";
+import Alert from "./Components/Alert";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import { loadUser } from './actions/auth';
+import { loadUser } from './Actions/Auth';
 //Redux imports
 import { Provider } from 'react-redux';
-import store from './reduxStore/store';
-import cloudURL from './services/cloud';
-import authToken from './services/authToken';
-import PrivateRoute from './components/routes/PrivateRoute';
+import store from './ReduxStore/Store';
+import cloudURL from './Services/Cloud';
+import authToken from './Services/AuthToken';
+import PrivateRoute from './Components/Routes/PrivateRoute';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 

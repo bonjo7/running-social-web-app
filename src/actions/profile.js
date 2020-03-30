@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { setAlert } from './alert';
 import { GET_PROFILE, PROFILE_ERROR} from './constantans';
-import cloudURL from '../services/cloud';
+import cloudURL from '../Services/Cloud';
 
 export const getCurrentprofile = () => async dispatch => {
     try{
