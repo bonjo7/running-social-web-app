@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { getCurrentprofile } from "../../Actions/Profile";
 import Loading from "./Loading";
 import "../../App.css";
-import CreateProfile from "./Profile1/CreateProfile";
-import EditProfile from "./Profile1/EditProfile";
+import CreateProfile from "./Profile/CreateProfile";
+import EditProfile from "./Profile/EditProfile";
 
 const Dashboard = ({
   getCurrentprofile,
