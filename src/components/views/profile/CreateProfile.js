@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Accordion, Card, Form, Col, Row, Button } from "react-bootstrap";
 import "../Main.css";
 import "./createProfile.css";
-import { createProfile } from "../../../actions/profile";
+import { createProfile } from "../../../Actions/Profile";
 
 const CreateProfile = ({ createProfile }) => {
   const [formData, setForm] = useState({

@@ -2,8 +2,8 @@ import React, { Fragment, useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Auth.css";
-import { setAlert } from "../../../actions/alert";
-import { register } from "../../../actions/auth";
+import { setAlert } from "../../../Actions/Alert";
+import { register } from "../../../Actions/Auth";
 
 const Register = props => {
   const [formInput, setForm] = useState({

@@ -3,7 +3,7 @@ import { Navbar, Nav, Form } from "react-bootstrap";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { logout } from "../../actions/auth";
+import { logout } from "../../Actions/Auth";
 import PropTypes from 'prop-types';
 
 const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {

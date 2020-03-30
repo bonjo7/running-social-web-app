@@ -1,12 +1,12 @@
 import React, { Fragment, useEffect } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import NavBar from "./Components/views/NavBar";
-import Main from "./Components/views/Main";
-import Login from "./Components/views/auth/Login";
-import Events from "./Components/views/Events";
-import Dashboard from './Components/views/Dashboard'
-import Register from "./Components/views/auth/Register";
+import NavBar from "./Components/Views/NavBar";
+import Main from "./Components/Views/Main";
+import Login from "./Components/Views/Auth/Login";
+import Events from "./Components/Views/Events";
+import Dashboard from './Components/Views/Dashboard'
+import Register from "./Components/Views/Auth/Register";
 import Alert from "./Components/Alert";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { loadUser } from './Actions/Auth';

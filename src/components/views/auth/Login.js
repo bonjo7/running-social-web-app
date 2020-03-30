@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import "./Auth.css";
 import { connect } from "react-redux";
-import { login } from "../../../actions/auth";
+import { login } from "../../../Actions/Auth";
 
 const Login = props => {
   const [formInput, setForm] = useState({

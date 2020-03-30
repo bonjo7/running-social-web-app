@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import loading from "../../images/loading.gif";
+import loading from "../../Images/loading.gif";
 
 export default () => (
   <Fragment>

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Accordion, Card, Form, Col, Row, Button } from "react-bootstrap";
 import "../Main.css";
 import "./createProfile.css";
-import { createProfile, getCurrentprofile } from "../../../actions/profile";
+import { createProfile, getCurrentprofile } from "../../../Actions/Profile";
 
 const EditProfile = ({
   profile: { profile, loading },

@@ -1,11 +1,11 @@
 import React, { useEffect, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from 'prop-types';
-import { getCurrentprofile } from "../../actions/profile";
+import { getCurrentprofile } from "../../Actions/Profile";
 import Loading from "./Loading";
 import "../../App.css";
-import CreateProfile from "./profile/CreateProfile";
-import EditProfile from "./profile/EditProfile";
+import CreateProfile from "./Profile/CreateProfile";
+import EditProfile from "./Profile/EditProfile";
 
 const Dashboard = ({
   getCurrentprofile,

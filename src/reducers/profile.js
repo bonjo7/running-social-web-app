@@ -1,4 +1,4 @@
-import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE } from "../actions/constantans";
+import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE } from "../Actions/Constantans";
 
 const initialstate = {
     profile: null,
