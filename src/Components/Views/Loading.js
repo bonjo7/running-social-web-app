@@ -3,7 +3,7 @@ import loading from "../../Images/loading.gif";
 
 export default () => (
   <Fragment>
-    <img
+    <img 
       src={loading}
       style={{ width: "200px", margin: "auto", display: "block" }}
     />

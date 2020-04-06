@@ -1,16 +1,17 @@
 import React, { useEffect, Fragment } from "react";
 import { connect } from "react-redux";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { getCurrentprofile } from "../../Actions/Profile";
 import Loading from "./Loading";
 import "../../App.css";
 import CreateProfile from "./Profile/CreateProfile";
 import EditProfile from "./Profile/EditProfile";
+import Addrace from "./Profile/AddRace";
 
 const Dashboard = ({
   getCurrentprofile,
   auth: { user },
-  profile: { profile, loading }
+  profile: { profile, loading },
 }) => {
   useEffect(() => {
     getCurrentprofile();
@@ -20,7 +21,7 @@ const Dashboard = ({
   ) : (
     <Fragment>
       <h1 className='large text-color'>User Account</h1>
-      <p class='settingelcome'>Welcome {user && user.name}</p>
+      <p className='settingelcome'>Welcome {user && user.name}</p>
       {profile !== null ? (
         <Fragment>
           <EditProfile></EditProfile>
@@ -32,8 +33,10 @@ const Dashboard = ({
           </p>
 
           <CreateProfile></CreateProfile>
+          
         </Fragment>
       )}
+      <Fragment><Addrace></Addrace></Fragment>
     </Fragment>
   );
 };
@@ -41,12 +44,12 @@ const Dashboard = ({
 Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth,
-  profile: state.profile
+  profile: state.profile,
 });
 
 export default connect(mapStateToProps, { getCurrentprofile })(Dashboard);

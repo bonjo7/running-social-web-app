@@ -21,7 +21,6 @@ const CreateProfile = ({ createProfile }) => {
   });
 
   const {
-    user,
     runningclub,
     clubwebsite,
     location,
@@ -45,12 +44,12 @@ const CreateProfile = ({ createProfile }) => {
       <Card className='card shadow lg p-3 mb-5 bg-white rounded'>
         <Accordion.Toggle
           as={Card.Header}
-          class='toggleHeader'
+          className='toggleHeader'
           eventKey='0'
           color='#17a2b8'
         >
           Click here to Create Profile{" "}
-          <i class='fas fa-angle-down' color='#17a2b8'></i>
+          <i className='fas fa-angle-down' color='#17a2b8'></i>
         </Accordion.Toggle>
         <Accordion.Collapse eventKey='0'>
           <Card.Body>
@@ -152,7 +151,7 @@ const CreateProfile = ({ createProfile }) => {
 
             <Form.Group as={Row} controlId='twitterusername'>
               <Form.Label column sm='1'>
-                <i class='fab fa-twitter fa-2x' color='#17a2b8'></i>
+                <i className='fab fa-twitter fa-2x' color='#17a2b8'></i>
               </Form.Label>
               <Col sm='11'>
                 <Form.Control
@@ -167,7 +166,7 @@ const CreateProfile = ({ createProfile }) => {
 
             <Form.Group as={Row} controlId='instausername'>
               <Form.Label column sm='1'>
-                <i class='fab fa-instagram fa-2x' color='#17a2b8'></i>
+                <i className='fab fa-instagram fa-2x' color='#17a2b8'></i>
               </Form.Label>
               <Col sm='11'>
                 <Form.Control

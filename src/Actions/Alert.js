@@ -1,4 +1,4 @@
-import { SET_ALERT, REMOVE_ALERT } from './Constantans';
+import { SET_ALERT} from './Constantans';
 import * as uuid from 'uuid';
 
 export const setAlert = (msg, alertType) => dispatch => {

@@ -72,7 +72,7 @@ const EditProfile = ({
     <Accordion>
       <Card className='card shadow lg p-3 mb-5 bg-white rounded'>
         <Accordion.Toggle as={Card.Header} eventKey='0' color='#17a2b8'>
-          <i class='fas fa-angle-down' color='#17a2b8'></i>
+          <i className='fas fa-angle-down' color='#17a2b8'></i>
           Click here to Edit your Profile {user && user.name}
         </Accordion.Toggle>
         <Accordion.Collapse eventKey='0'>
@@ -175,7 +175,7 @@ const EditProfile = ({
 
             <Form.Group as={Row} controlId='twitterusername'>
               <Form.Label column sm='1'>
-                <i class='fab fa-twitter fa-2x' color='#17a2b8'></i>
+                <i className='fab fa-twitter fa-2x' color='#17a2b8'></i>
               </Form.Label>
               <Col sm='11'>
                 <Form.Control
@@ -190,7 +190,7 @@ const EditProfile = ({
 
             <Form.Group as={Row} controlId='instausername'>
               <Form.Label column sm='1'>
-                <i class='fab fa-instagram fa-2x' color='#17a2b8'></i>
+                <i className='fab fa-instagram fa-2x' color='#17a2b8'></i>
               </Form.Label>
               <Col sm='11'>
                 <Form.Control
