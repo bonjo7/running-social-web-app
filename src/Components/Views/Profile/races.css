@@ -1,0 +1,12 @@
+table i {
+    color: red;
+    margin-right: 5px;
+    text-align: center;
+    display: inline;
+  }
+
+  @media only screen and (max-width: 900px) {
+    .hide-col{
+        display: none;
+    }
+}

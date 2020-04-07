@@ -75,7 +75,6 @@ const AddRace = ({ addRace }) => {
                 step="1"
                 value={racetime}
                 onChange={(e) => onChange(e)}
-                required
               />
             </Form.Group>
 

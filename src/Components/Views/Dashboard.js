@@ -7,6 +7,7 @@ import "../../App.css";
 import CreateProfile from "./Profile/CreateProfile";
 import EditProfile from "./Profile/EditProfile";
 import Addrace from "./Profile/AddRace";
+import RaceTable from "./Profile/Races";
 
 const Dashboard = ({
   getCurrentprofile,
@@ -36,7 +37,11 @@ const Dashboard = ({
           
         </Fragment>
       )}
-      <Fragment><Addrace></Addrace></Fragment>
+      <Fragment>
+        <Addrace></Addrace>
+        <RaceTable race={profile.races}></RaceTable>
+      
+      </Fragment>
     </Fragment>
   );
 };
