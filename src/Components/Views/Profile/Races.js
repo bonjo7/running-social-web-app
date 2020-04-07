@@ -2,9 +2,10 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Button, Table } from "react-bootstrap";
+import {deleteRace} from "../../../Actions/Profile";
 import "./races.css";
 
-const Races = ({ race }) => {
+const Races = ({ race, deleteRace }) => {
   const races = race.map((r) => (
     <tr key={r._id}>
       <td>{r.racename}</td>
@@ -12,7 +13,7 @@ const Races = ({ race }) => {
       <td className='hide-col'>{r.racedate}</td>
       <td>{r.racetime}</td>
       <td>
-        <i className='fas fa-trash-alt'></i>
+        <i onClick={() => deleteRace(r._id)} className='fas fa-trash-alt' ></i>
       </td>
     </tr>
   ));
@@ -37,6 +38,7 @@ const Races = ({ race }) => {
 
 Races.propTypes = {
   race: PropTypes.array.isRequired,
+  deleteRace: PropTypes.func.isRequired
 };
 
-export default Races;
+export default connect(null, {deleteRace}) (Races);
