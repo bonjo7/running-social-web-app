@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Button, Table } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import {deleteRace} from "../../../Actions/Profile";
 import "./races.css";
 
@@ -37,7 +37,7 @@ const Races = ({ race, deleteRace }) => {
 };
 
 Races.propTypes = {
-  race: PropTypes.array.isRequired,
+  races: PropTypes.array.isRequired,
   deleteRace: PropTypes.func.isRequired
 };
 

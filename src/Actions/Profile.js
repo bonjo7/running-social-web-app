@@ -121,7 +121,7 @@ export const deleteRace = (id) => async (dispatch) => {
   }
 };
 
-export const deleteAccount = (id) => async (dispatch) => {
+export const deleteAccount = () => async (dispatch) => {
   if (
     window.confirm(
       "Confirm you wish to delete your account, this can not be undone!"
@@ -129,16 +129,16 @@ export const deleteAccount = (id) => async (dispatch) => {
   ) {
     try {
       const res = await axios.delete(
-        cloudURL() + "/lib/routes/profile//deleteaccount"
+        cloudURL() + "/lib/routes/profile/deleteaccount"
       );
 
-      dispatch({ type: CLEAR_PROFILE });
       dispatch({ type: DELETE_ACCOUNT });
+      dispatch({ type: CLEAR_PROFILE });
 
       dispatch(
         setAlert(
           "You have deleted your account, sorry to see you go",
-          "success"
+          "warning"
         )
       );
     } catch (error) {

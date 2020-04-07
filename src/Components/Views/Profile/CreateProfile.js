@@ -48,8 +48,9 @@ const CreateProfile = ({ createProfile }) => {
           eventKey='0'
           color='#17a2b8'
         >
-          Click here to Create Profile{" "}
           <i className='fas fa-angle-down' color='#17a2b8'></i>
+          Click here to Create Profile{" "}
+          
         </Accordion.Toggle>
         <Accordion.Collapse eventKey='0'>
           <Card.Body>
