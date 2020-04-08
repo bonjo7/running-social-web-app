@@ -47,7 +47,7 @@ const EditProfile = ({
           ? ""
           : profile.social.instausername
     });
-  }, [loading]);
+  }, [getCurrentprofile, loading]);
 
   const {
     runningclub,
@@ -221,7 +221,7 @@ const EditProfile = ({
 
 EditProfile.propTypes = {
   createProfile: PropTypes.func.isRequired,
-  getCurrentProfile: PropTypes.func.isRequired,
+  getCurrentprofile: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired
 };

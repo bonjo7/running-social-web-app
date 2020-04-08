@@ -6,6 +6,7 @@ import {
   UPDATE_PROFILE,
   CLEAR_PROFILE,
   DELETE_ACCOUNT,
+  GET_PROFILES
 } from "./Constantans";
 import cloudURL from "../Services/Cloud";
 
@@ -150,5 +151,44 @@ export const deleteAccount = () => async (dispatch) => {
         },
       });
     }
+  }
+};
+
+
+export const getAllProfiles = () => async (dispatch) => {
+  try {
+    const res = await axios.get(cloudURL() + "/lib/routes/profile/all");
+    
+    dispatch({
+      type: GET_PROFILES,
+      payload: res.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: {
+        msg: error.response.statusText,
+        status: error.response.status,
+      },
+    });
+  }
+};
+
+export const getUserProfile = userId => async (dispatch) => {
+  try {
+    const res = await axios.get(cloudURL() + `/lib/routes/profile/user/${userId}`);
+
+    dispatch({
+      type: GET_PROFILE,
+      payload: res.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: {
+        msg: error.response.statusText,
+        status: error.response.status,
+      },
+    });
   }
 };
