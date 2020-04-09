@@ -1,0 +1,28 @@
+.subtitle {
+  color: #17a2b8;
+}
+
+.row {
+  margin-bottom: 30px;
+}
+
+.fas {
+  margin-right: 10px;
+}
+
+.text{
+    margin-top: 10px;
+}
+
+.jumbotron{
+    background-color: #17a2b8;
+}
+
+.mainTitle{
+    color: #fff;
+}
+
+.cardH{
+    background-color: #17a2b8;
+    color: #fff;
+}

@@ -17,7 +17,8 @@ import cloudURL from './Services/Cloud';
 import authToken from './Services/AuthToken';
 import PrivateRoute from './Components/Routes/PrivateRoute';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Profiles from './Components/Views/Profiles/Profiles'
+import Profiles from './Components/Views/Profiles/Profiles';
+import Profile from './Components/Views/UserProfile/Profile';
 
 
 if(localStorage.token){
@@ -46,6 +47,7 @@ const App = () => {
     <Route exact path="/events" component={ Events} />
     <PrivateRoute exact path="/dashboard" component={ Dashboard} />
     <PrivateRoute exact path="/profiles" component={Profiles}/>
+    <PrivateRoute exact path="/profile/:id" component={Profile}/>
     </Switch>
 
     <Alert />

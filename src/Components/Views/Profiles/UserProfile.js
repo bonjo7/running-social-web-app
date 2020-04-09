@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Button, Card, Row, Col } from "react-bootstrap";
+import TextTruncate from 'react-text-truncate';
 
 const UserProfile = ({
   profile: {
@@ -12,26 +13,21 @@ const UserProfile = ({
   return (
     
 <Card>
-  <Card.Header as="h5">{name}</Card.Header>
+  <Card.Header as="h5">{name} </Card.Header>
   <Card.Body>
   <Row>
     <Col><Card.Title>Location: {location}</Card.Title>
     <Card.Text>
-      Bio: {bio}
+    <TextTruncate line={5} element='span' truncateText='…' text={bio} textTruncateChild={<Link to={`/profile/${_id}` }>See More...</Link>} />
     </Card.Text></Col>
     <Col><p>Preferred Distance: {distance} </p><p>Club: {runningclub} </p><ul>Fitness Interest: {fitnessinterest.map((interest, index) => (<li key={index}> <i className="fas fa-running"></i> {interest}</li>))}</ul></Col>
   </Row>
     
     <Link to={`/profile/${_id}`}>
-          <Button>View Profile</Button>{" "}
+          <Button>View Profile</Button>
         </Link>
   </Card.Body>
-</Card>
-
-
-
-        
-        
+</Card>    
       
   );
 };

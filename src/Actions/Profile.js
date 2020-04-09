@@ -156,6 +156,7 @@ export const deleteAccount = () => async (dispatch) => {
 
 
 export const getAllProfiles = () => async (dispatch) => {
+  dispatch({ type: CLEAR_PROFILE });
   try {
     const res = await axios.get(cloudURL() + "/lib/routes/profile/all");
     
@@ -174,10 +175,11 @@ export const getAllProfiles = () => async (dispatch) => {
   }
 };
 
-export const getUserProfile = userId => async (dispatch) => {
+export const getUserprofile = userId => async (dispatch) => {
+  
   try {
     const res = await axios.get(cloudURL() + `/lib/routes/profile/user/${userId}`);
-
+    
     dispatch({
       type: GET_PROFILE,
       payload: res.data,
