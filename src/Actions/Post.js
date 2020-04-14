@@ -6,6 +6,8 @@ import {
   ADD_LIKES,
   DELETE_POST,
   ADD_POST,
+  GET_POST,
+  ADD_COMMENT
 } from "./Constantans";
 import cloudURL from "../Services/Cloud";
 
@@ -90,6 +92,56 @@ export const addPost = (formData) => async (dispatch) => {
     });
 
     dispatch(setAlert("Successfully created your post", "success"));
+  } catch (error) {
+    dispatch({
+      type: POST_ERROR,
+      payload: {
+        msg: error.response.statusText,
+        status: error.response.status,
+      },
+    });
+  }
+};
+
+export const getPost = id => async (dispatch) => {
+  try {
+    const result = await axios.get(cloudURL() + `/lib/routes/posts/posts/${id}`);
+
+    dispatch({
+      type: GET_POST,
+      payload: result.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: POST_ERROR,
+      payload: {
+        msg: error.response.statusText,
+        status: error.response.status,
+      },
+    });
+  }
+};
+
+export const addComment = (postId, formData) => async (dispatch) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  try {
+    const res = await axios.post(
+      cloudURL() + `/lib/routes/posts/comment/${postId}`,
+      formData,
+      config
+    );
+
+    dispatch({
+      type: ADD_COMMENT,
+      payload: res.data,
+    });
+
+    dispatch(setAlert("Successfully created your comment", "success"));
   } catch (error) {
     dispatch({
       type: POST_ERROR,

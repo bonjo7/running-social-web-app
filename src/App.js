@@ -20,6 +20,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Profiles from './Components/Views/Profiles/Profiles';
 import Profile from './Components/Views/UserProfile/Profile';
 import Posts from './Components/Views/Posts/Posts';
+import Post from './Components/Views/Posts/SinglePost'
 
 
 if(localStorage.token){
@@ -50,6 +51,7 @@ const App = () => {
     <PrivateRoute exact path="/profiles" component={Profiles}/>
     <PrivateRoute exact path="/profile/:id" component={Profile}/>
     <PrivateRoute exact path="/posts" component={Posts}/>
+    <PrivateRoute exact path="/post/:id" component={Post}/>
     </Switch>
 
     <Alert />
