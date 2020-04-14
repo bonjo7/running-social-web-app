@@ -12,6 +12,7 @@ const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
       <Link to='/events'>Events</Link>
       <Link to='/profiles'>Members</Link>
       <Link to='/dashboard'>Account</Link>
+      <Link to='/posts'>Feed</Link>
       <Link onClick={logout} to='/'>
         Logout{" "}
       </Link>

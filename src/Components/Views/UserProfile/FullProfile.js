@@ -1,4 +1,4 @@
-import React, {Link} from 'react'
+import React, {Link, Fragment} from 'react'
 import PropTypes from 'prop-types'
 import { Card, Row, Col } from "react-bootstrap";
 import './FullProfile.css';
@@ -11,7 +11,8 @@ const FullProfile = ({ profile: {
     clubwebsite,
     distance,
     user:{name},
-    blog
+    blog,
+    races
 }}) => {
     return (
 
@@ -46,13 +47,13 @@ const FullProfile = ({ profile: {
         <Row>
     <Col>
     <p></p>
-    <Card.Subtitle className="subtitle"><i class="fas fa-running"></i>Running Club</Card.Subtitle>
+    <Card.Subtitle className="subtitle"><i className="fas fa-running"></i>Running Club</Card.Subtitle>
     <Card.Text className="text">
         {runningclub}
     </Card.Text></Col>
     <Col>
     <p></p>
-    <Card.Subtitle className="subtitle"><i class="fas fa-bookmark"></i>Club URL</Card.Subtitle>
+    <Card.Subtitle className="subtitle"><i className="fas fa-bookmark"></i>Club URL</Card.Subtitle>
     <Card.Text className="text">
       {clubwebsite}
     </Card.Text>
@@ -61,16 +62,16 @@ const FullProfile = ({ profile: {
     <Row>
     <Col>
     <p></p>
-    <Card.Subtitle className="subtitle"><i class="fas fa-info"></i>Fitness Interest</Card.Subtitle>
+    <Card.Subtitle className="subtitle"><i className="fas fa-info"></i>Fitness Interest</Card.Subtitle>
     <Card.Text className="text">
        {fitnessinterest.map((interest, index) => (
-           <div key={index}><i class="fas fa-angle-right"></i>{interest}</div>
+           <div key={index}><i className="fas fa-angle-right"></i>{interest}</div>
        ))}
     </Card.Text>
     </Col>
     <Col>
     <p></p>
-    <Card.Subtitle className="subtitle"><i class="fas fa-blog"></i>Blog</Card.Subtitle>
+    <Card.Subtitle className="subtitle"><i className="fas fa-blog"></i>Blog</Card.Subtitle>
     <Card.Text className="text">
        {blog}
     </Card.Text>
@@ -80,10 +81,21 @@ const FullProfile = ({ profile: {
 
     <Card className="card mb-4 border-1">
        <Card.Header as="h5">Races </Card.Header>
+       
            <Card.Body>
     <Row>
     <Col>
-    
+    {races.length > 0 ? (<Fragment>
+      {races.map(r =>(
+        <tr key={r._id}>
+        <td>{r.racename}</td>
+        <td className='hide-col'>{r.racelocation}</td>
+        <td className='hide-col'>{r.racedate}</td>
+        <td>{r.racetime}</td>
+        
+      </tr>
+      ))}
+    </Fragment>) : (<h4>No race details</h4>)}
     </Col>
     </Row>
     </Card.Body></Card> 
