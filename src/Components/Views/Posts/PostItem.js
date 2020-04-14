@@ -2,28 +2,33 @@ import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import { Card, Form, Col, Row, Button } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 import './Post.css';
 import Moment from 'react-moment';
+import { addLike, removePost } from '../../../Actions/Post';
 
-const PostItem = ({auth, post: {_id, text, name, user, likes, comments, date}}) => {
+const PostItem = ({addLike, removePost, auth, post: {_id, text, username, user, positives, comments, date}}) => {
     return (
         <Card>
-  <Card.Header><i>{name}</i></Card.Header>
+  <Card.Header className ="hName"><i>{username}</i></Card.Header>
   <Card.Body>
-    <blockquote className="blockquote mb-0">
+    
       <p>
         {' '}
         {text}{' '}
       </p>
-      <Card.Footer className="text-muted">
-      <p><i className="far fa-thumbs-up">{' '} {likes.length} {' '}Likes </i> 
       
-      <Link to ={`/post/${_id}`}><i className="far fa-comments">{' '} {comments.length} {' '}Comments  </i> </Link>
+      <p>
+      <Button variant="light"><i onClick={e => addLike(_id)} className="far fa-thumbs-up">{' '} {positives.length} {' '}Likes </i> </Button>
       
-      {!auth.loading && user === auth.user._id && (<i class="far fa-trash-alt"></i> )}
+      <Button variant="light"><Link to ={`/post/${_id}`}><i className="far fa-comments">{' '} {comments.length} {' '}Comments  </i> </Link></Button>
+      
+      {!auth.loading && user === auth.user._id && (<i onClick={e => removePost(_id)} className="far fa-trash-alt"></i> )}
       </p>
-      Posted: <cite className="titleName" title="Source Title"><Moment format='DD-MM-YYYY / HH:mm:ss'>{date}</Moment></cite></Card.Footer>
+      <blockquote className="blockquote mb-0">
+      <footer className="blockquote-footer">
+      Posted: <cite className="titleName" title="Source Title"><Moment format='DD-MM-YYYY / HH:mm:ss'>{date}</Moment></cite>
+      </footer>
       </blockquote>
         
       
@@ -36,9 +41,11 @@ const PostItem = ({auth, post: {_id, text, name, user, likes, comments, date}}) 
 
 PostItem.propTypes = {
     post: PropTypes.object.isRequired,
-    auth: PropTypes.object.isRequired
+    auth: PropTypes.object.isRequired,
+    addLike: PropTypes.func.isRequired,
+    removePost: PropTypes.func.isRequired,
 }
 const mapStateToProps = state => ({
     auth: state.auth
 })
-export default connect(mapStateToProps, {}) (PostItem)
+export default connect(mapStateToProps, {addLike, removePost}) (PostItem)
