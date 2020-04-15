@@ -43,7 +43,7 @@ const Login = props => {
   };
 
   if (props.isAuthenticated) {
-    return <Redirect to='/dashboard' />;
+    return <Redirect to='/posts' />;
   }
 
   return (

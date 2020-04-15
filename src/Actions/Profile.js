@@ -1,5 +1,6 @@
 import axios from "axios";
 import { setAlert } from "./Alert";
+import swal from 'sweetalert';
 import {
   GET_PROFILE,
   PROFILE_ERROR,
@@ -123,36 +124,74 @@ export const deleteRace = (id) => async (dispatch) => {
 };
 
 export const deleteAccount = () => async (dispatch) => {
-  if (
-    window.confirm(
-      "Confirm you wish to delete your account, this can not be undone!"
-    )
-  ) {
-    try {
-      const res = await axios.delete(
-        cloudURL() + "/lib/routes/profile/deleteaccount"
-      );
+  swal({
+      title: "Are you sure?",
+      text: "You will not be able to recover your account!",
+      icon: "warning",
+      buttons: [
+        'No, keep my account!',
+        'Yes, delete my account!'
+      ],
+      dangerMode: true,
+    }).then(function(isConfirm) {
+      if (isConfirm) {
+        swal({
+          title: 'Deleted!',
+          text: 'You have deleted your account! Sorry to see you leave',
+          icon: 'error'
+        }).then(function() {
+          try {
+            axios.delete(
+              cloudURL() + "/lib/routes/profile/deleteaccount"
+            );
+      
+            dispatch({ type: DELETE_ACCOUNT });
+            dispatch({ type: CLEAR_PROFILE });
+            
+          } catch (error) {
+            dispatch({
+              type: PROFILE_ERROR,
+              payload: {
+                msg: error.response.statusText,
+                status: error.response.status,
+              },
+            });
+          }
+        });
+      } else {
+        swal("Cancelled", "Your still have you account, thank you for staying", "success");
+      }
+    })};
+// });
+    // window.confirm(
+    //   "Confirm you wish to delete your account, this can not be undone!"
+    // )
+//    {
+//     try {
+//       const res = await axios.delete(
+//         cloudURL() + "/lib/routes/profile/deleteaccount"
+//       );
 
-      dispatch({ type: DELETE_ACCOUNT });
-      dispatch({ type: CLEAR_PROFILE });
+//       dispatch({ type: DELETE_ACCOUNT });
+//       dispatch({ type: CLEAR_PROFILE });
 
-      dispatch(
-        setAlert(
-          "You have deleted your account, sorry to see you go",
-          "warning"
-        )
-      );
-    } catch (error) {
-      dispatch({
-        type: PROFILE_ERROR,
-        payload: {
-          msg: error.response.statusText,
-          status: error.response.status,
-        },
-      });
-    }
-  }
-};
+//       dispatch(
+//         setAlert(
+//           "You have deleted your account, sorry to see you go",
+//           "warning"
+//         )
+//       );
+//     } catch (error) {
+//       dispatch({
+//         type: PROFILE_ERROR,
+//         payload: {
+//           msg: error.response.statusText,
+//           status: error.response.status,
+//         },
+//       });
+//     }
+//   }
+// };
 
 
 export const getAllProfiles = () => async (dispatch) => {

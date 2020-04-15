@@ -6,8 +6,7 @@ import { Link } from "react-router-dom";
 import "./Post.css";
 
 const CommentItem = ({
-  postId,
-  comment: { _id, text, name, username, user },
+  comment: { text, username, user },
   auth,
 }) => {
   return (

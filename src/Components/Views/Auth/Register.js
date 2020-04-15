@@ -22,9 +22,13 @@ const Register = props => {
   const onSubmit = async e => {
     e.preventDefault();
     if (password !== confirmPassword) {
+      window.alert(
+        "Passwords do not match, please try again"
+      );
       props.setAlert("Passwords do not match", "danger");
       console.log("Passwords do not match");
     } else {
+      
       props.register({ name, email, password });
       console.log("Register success");
       props.history.push("/login");
