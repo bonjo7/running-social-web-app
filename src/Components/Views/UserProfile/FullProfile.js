@@ -1,6 +1,6 @@
-import React, {Link, Fragment} from 'react'
+import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
-import { Card, Row, Col } from "react-bootstrap";
+import { Card, Row, Col, Table } from "react-bootstrap";
 import './FullProfile.css';
 
 const FullProfile = ({ profile: {
@@ -85,7 +85,19 @@ const FullProfile = ({ profile: {
            <Card.Body>
     <Row>
     <Col>
+    
     {races.length > 0 ? (<Fragment>
+      <Table   striped bordered hover variant="secondary">
+        <thead>
+         
+          <tr className="thead">
+            <th >Race Name</th>
+            <th className='hide-col'>Location</th>
+            <th className='hide-col'>Date</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+    <tbody>
       {races.map(r =>(
         <tr key={r._id}>
         <td>{r.racename}</td>
@@ -94,7 +106,13 @@ const FullProfile = ({ profile: {
         <td>{r.racetime}</td>
         
       </tr>
-      ))}
+      
+      ))}</tbody>
+     </Table>
+       
+        
+        
+      
     </Fragment>) : (<h4>No race details</h4>)}
     </Col>
     </Row>

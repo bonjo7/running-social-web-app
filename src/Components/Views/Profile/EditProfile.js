@@ -42,7 +42,7 @@ const EditProfile = ({
         loading || !profile.social.twitterusername
           ? ""
           : profile.social.twitterusername,
-      instausername:
+          instausername:
         loading || !profile.social.instausername
           ? ""
           : profile.social.instausername
@@ -70,7 +70,7 @@ const EditProfile = ({
   };
   return (
     <Accordion>
-      <Card className='card shadow lg p-3 mb-5 bg-white rounded'>
+      <Card className='card shadow'>
         <Accordion.Toggle as={Card.Header} eventKey='0' color='#17a2b8'>
           <i className='fas fa-angle-down' color='#17a2b8'></i>
           Click here to Edit your Profile {user && user.name}
@@ -194,7 +194,7 @@ const EditProfile = ({
               </Form.Label>
               <Col sm='11'>
                 <Form.Control
-                  name='instarusername'
+                  name='instausername'
                   placeholder='Instagram URL'
                   as='input'
                   value={instausername}

@@ -5,6 +5,7 @@ import { getPosts } from "../../../Actions/Post";
 import Loading from "../Loading";
 import PostItem from "../Posts/PostItem";
 import CreatePost from "../Posts/PostForm";
+import './Post.css'
 
 const Posts = ({ getPosts, post: { loading, posts } }) => {
   useEffect(() => {
@@ -14,7 +15,7 @@ const Posts = ({ getPosts, post: { loading, posts } }) => {
     <Loading />
   ) : (
     <Fragment>
-      <h2>FEED</h2>
+      <h2 className='h2'>SOCIAL FEED</h2>
       <CreatePost/>
       <div className='posts'>
         {posts.map((p) => (

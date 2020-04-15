@@ -41,14 +41,14 @@ const CreateProfile = ({ createProfile }) => {
   };
   return (
     <Accordion>
-      <Card className='card shadow lg p-3 mb-5 bg-white rounded'>
+      <Card className='card shadow'>
         <Accordion.Toggle
           as={Card.Header}
           className='toggleHeader'
           eventKey='0'
           color='#17a2b8'
         >
-          <i className='fas fa-angle-down' color='#17a2b8'></i>
+          <i className='fas fa-angle-down' color='#fff'></i>
           Click here to Create Profile{" "}
           
         </Accordion.Toggle>
@@ -171,7 +171,7 @@ const CreateProfile = ({ createProfile }) => {
               </Form.Label>
               <Col sm='11'>
                 <Form.Control
-                  name='instarusername'
+                  name='instausername'
                   placeholder='Instagram URL'
                   as='input'
                   value={instausername}

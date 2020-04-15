@@ -1,12 +1,32 @@
 table i {
-    color: red;
-    margin-right: 5px;
-    text-align: center;
-    display: inline;
-  }
+  color: red;
+  margin-right: 5px;
+  text-align: center;
+  display: inline;
+}
 
-  @media only screen and (max-width: 900px) {
-    .hide-col{
-        display: none;
-    }
+@media only screen and (max-width: 900px) {
+  .hide-col {
+    display: none;
+  }
+}
+
+.h2 {
+  color: #17a2b8;
+}
+
+.thead {
+  color: #17a2b8;
+  font-style: italic;
+  font-family: sans-serif, "Helvetica Neue", "Lucida Grande", Arial;
+  font-stretch: expanded;
+}
+
+
+.bg {
+  background-color: #fff;
+}
+
+table th{
+  background: #fff;
 }

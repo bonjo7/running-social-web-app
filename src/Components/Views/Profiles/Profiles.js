@@ -16,8 +16,7 @@ const Profiles = ({ getAllProfiles, profile: { profiles, loading } }) => {
         <Loading></Loading>
       ) : (
         <Fragment>
-          <h1>Members</h1>
-          <p>Connect with other social runners</p>
+          <h2 className='h2'>Members</h2>
 
           <div className='profiles'>
             {profiles.length > 0 ? (
@@ -25,7 +24,7 @@ const Profiles = ({ getAllProfiles, profile: { profiles, loading } }) => {
                 <UserProfile key={profile._id} profile={profile} />
               ))
             ) : (
-              <h4>Oh snap looks like your on your own</h4>
+              <h2 className='h2'>Oh snap looks like your on your own</h2>
             )}
           </div>
         </Fragment>

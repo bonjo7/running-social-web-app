@@ -8,7 +8,7 @@ import CreateProfile from "./Profile/CreateProfile";
 import EditProfile from "./Profile/EditProfile";
 import Addrace from "./Profile/AddRace";
 import RaceTable from "./Profile/Races";
-import { Button } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 
 
 
@@ -25,13 +25,19 @@ const Dashboard = ({
   return loading && profile === null ? (
     <Loading></Loading>
   ) : (
+    
     <Fragment>
+      <Card className='card lg p-3 mb-5 bg-white rounded'>
       <h1 className='large text-color'>User Account</h1>
       <p className='settingelcome'>Welcome {user && user.name}</p>
+      <Card className='card lg p-3 mb-5 bg-white rounded'>
+
       <Fragment>
+      
         <Button onClick={() => deleteAccount()} variant='danger'>
           Delete Account
         </Button>
+        
       </Fragment>
       <p></p>
       {profile !== null ? (
@@ -47,9 +53,12 @@ const Dashboard = ({
           </p>
 
           <CreateProfile></CreateProfile>
+          
         </Fragment>
+        
       )}
-    
+   </Card>
+   </Card>
     </Fragment>
   );
 };

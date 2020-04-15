@@ -7,7 +7,7 @@ hr {
   color: #17a2b8;
   border: none;
   height: 2px;
-  background-color: #17a2b8; /* Modern Browsers */
+  background-color: #17a2b8;
 }
 
 form{
@@ -19,4 +19,8 @@ form{
 
 .fas{
   margin-right: 10px;
+}
+
+.accordion{
+  color: #17a2b8;
 }

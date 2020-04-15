@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Table } from "react-bootstrap";
+import { Table, Card } from "react-bootstrap";
 import {deleteRace} from "../../../Actions/Profile";
 import "./races.css";
 
@@ -19,19 +19,23 @@ const Races = ({ race, deleteRace }) => {
   ));
   return (
     <Fragment>
-      <h2>Races</h2>
-      <Table striped bordered hover>
+      <Card className='card lg p-3 mb-5 bg-white rounded shadow'>
+      <h2 className='h2'>Races</h2>
+      <Table   striped bordered hover variant="secondary">
         <thead>
-          <tr>
-            <th>Race Name</th>
+         
+          <tr className="thead">
+            <th >Race Name</th>
             <th className='hide-col'>Location</th>
             <th className='hide-col'>Date</th>
             <th>Time</th>
             <th>Delete</th>
           </tr>
         </thead>
+        
         <tbody>{races}</tbody>
       </Table>
+      </Card>
     </Fragment>
   );
 };

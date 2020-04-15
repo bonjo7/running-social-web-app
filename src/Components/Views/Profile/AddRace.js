@@ -25,8 +25,8 @@ const AddRace = ({ addRace }) => {
 
   return (
     <Accordion>
-      <Card className='card shadow lg p-3 mb-5 bg-white rounded'>
-        <Accordion.Toggle as={Card.Header} eventKey='0' color='#17a2b8'>
+      <Card className='card shadow'>
+        <Accordion.Toggle  as={Card.Header} eventKey='0' color='#17a2b8'>
           <i className='fas fa-angle-down' color='#17a2b8'></i>
           Click here to Add Race Details{" "}
           
