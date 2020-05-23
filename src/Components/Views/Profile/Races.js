@@ -11,7 +11,7 @@ const Races = ({ race, deleteRace }) => {
       <td>{r.racename}</td>
       <td className='hide-col'>{r.racelocation}</td>
       <td className='hide-col'>{r.racedate}</td>
-      <td>{r.racetime}</td>
+      <td className='hide-col'>{r.racetime}</td>
       <td>
         <i onClick={() => deleteRace(r._id)} className='fas fa-trash-alt' ></i>
       </td>
@@ -28,8 +28,8 @@ const Races = ({ race, deleteRace }) => {
             <th >Race Name</th>
             <th className='hide-col'>Location</th>
             <th className='hide-col'>Date</th>
-            <th>Time</th>
-            <th>Delete</th>
+            <th className='hide-col'>Time</th>
+            <th >Delete</th>
           </tr>
         </thead>
         

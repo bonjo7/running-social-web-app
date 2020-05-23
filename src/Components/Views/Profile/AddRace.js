@@ -34,7 +34,7 @@ const AddRace = ({ addRace }) => {
         <Accordion.Collapse eventKey='0'>
           <Card.Body>
             <Form.Group controlId='racename'>
-              <Form.Label>Running Club</Form.Label>
+              <Form.Label>Event Name</Form.Label>
               <Form.Control
                 name='racename'
                 placeholder='Event Name'

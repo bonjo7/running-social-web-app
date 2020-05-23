@@ -1,3 +1,3 @@
 {
-    "cloudHost": "http://running-social-node-app-running-social-dev.e4ff.pro-eu-west-1.openshiftapps.com"
+    "cloudHost": "http://running-social-node-app-running-social-prod.e4ff.pro-eu-west-1.openshiftapps.com"
 }
