@@ -36,7 +36,7 @@ const UserProfile = ({
     
     
 <Card>
-  <Card.Header as="h5">{name} </Card.Header>
+  <Card.Header className='name' as="h5">{name} </Card.Header>
   <Card.Body>
   <Row>
     <Col>

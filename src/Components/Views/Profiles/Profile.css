@@ -6,3 +6,8 @@
     height: 200px;
     width: 200px;
   }
+
+  .name{
+    background-color: #17a2b8;
+    color: #fff;
+  }
