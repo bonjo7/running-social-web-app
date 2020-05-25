@@ -21,7 +21,6 @@ const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
   const nonUserLinks = (
     <Fragment>
-      <Link to='/members'>Members</Link>
       <Link to='/events'>Events</Link>
       <Link to='/login'>Login </Link>
     </Fragment>
