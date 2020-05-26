@@ -31,7 +31,8 @@ export const loadUser = () => async (dispatch) => {
     });
     swal({
       title: 'Login Eror',
-      text: error.msg + ' - No account chief'
+      icon: 'error',
+      text: 'No account exists with this email, please register an account'
     })
     
   }
@@ -62,6 +63,7 @@ export const register = ({ name, email, password }) => async (dispatch) => {
     if (errors) {
       errors.forEach(error => swal({
         title: 'Registration Eror',
+        icon: 'error',
         text: error.msg + ' - Please try again with a different email addresss'
       }));
     }

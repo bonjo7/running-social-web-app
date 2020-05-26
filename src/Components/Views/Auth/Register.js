@@ -25,6 +25,7 @@ const Register = props => {
     if (password !== confirmPassword) {
       swal({
         title: 'Registration Eror',
+        icon: 'error',
         text: 'Passwords do not match, try again'
       })
       props.setAlert("Passwords do not match", "danger");
