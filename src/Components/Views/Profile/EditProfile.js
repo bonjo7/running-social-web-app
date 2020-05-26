@@ -14,6 +14,7 @@ const EditProfile = ({
 }) => {
   const [formData, setForm] = useState({
     user: "",
+    sex: "",
     runningclub: "",
     clubwebsite: "",
     location: "",
@@ -28,6 +29,7 @@ const EditProfile = ({
   useEffect(() => {
     getCurrentprofile();
     setForm({
+      sex: loading || !profile.sex ? "" : profile.sex,
       runningclub: loading || !profile.runningclub ? "" : profile.runningclub,
       clubwebsite: loading || !profile.clubwebsite ? "" : profile.clubwebsite,
       location: loading || !profile.location ? "" : profile.location,
@@ -50,6 +52,7 @@ const EditProfile = ({
   }, [getCurrentprofile, loading]);
 
   const {
+    sex,
     runningclub,
     clubwebsite,
     location,
@@ -75,8 +78,24 @@ const EditProfile = ({
           <i className='fas fa-angle-down' color='#17a2b8'></i>
           Click here to Edit your Profile {user && user.name}
         </Accordion.Toggle>
+        
         <Accordion.Collapse eventKey='0'>
           <Card.Body>
+          <Form.Group controlId='sex'>
+              <Form.Label>Sex</Form.Label>
+              <Form.Control
+                name='sex'
+                as='select'
+                value={sex}
+                onChange={(e) => onChange(e)}
+                required
+              >
+                <option>Please Choose...</option>
+                <option value='male'>Male</option>
+                <option value='female'>Female</option>
+              </Form.Control>
+            </Form.Group>
+
             <Form.Group controlId='runningclub'>
               <Form.Label>Running Club</Form.Label>
               <Form.Control
