@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./Auth.css";
 import { setAlert } from "../../../Actions/Alert";
 import { register } from "../../../Actions/Auth";
+import swal from 'sweetalert';
 
 const Register = props => {
   const [formInput, setForm] = useState({
@@ -22,9 +23,10 @@ const Register = props => {
   const onSubmit = async e => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      window.alert(
-        "Passwords do not match, please try again"
-      );
+      swal({
+        title: 'Registration Eror',
+        text: error.msg + ' - Please try again with a different email addresss'
+      })
       props.setAlert("Passwords do not match", "danger");
       console.log("Passwords do not match");
     } else {
