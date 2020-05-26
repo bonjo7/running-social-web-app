@@ -29,6 +29,10 @@ export const loadUser = () => async (dispatch) => {
     dispatch({
       type: AUTH_ERROR,
     });
+    swal({
+      title: 'Login Eror',
+      text: error.msg + ' - No account chief'
+    })
     
   }
 };
